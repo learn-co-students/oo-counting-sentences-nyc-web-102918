@@ -15,7 +15,9 @@ class String
   end
 
   def count_sentences
-sentences = self.split(/[.?!]/).delete_if {|words| words.empty?}
-sentences.size
+sentences = self.split(" ")
+sentence_array = sentences.select {|words| words.sentence? || words.question? || words.exclamation?}
+sentence_array.size
+#binding.pry
   end
 end
